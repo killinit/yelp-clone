@@ -6,11 +6,11 @@ describe 'adding a restaurant' do
       visit '/restaurants/new'
       fill_in 'Name', with: 'Plenty of Sushi'
       fill_in 'Description', with: 'Om nom nom'
-      click_button 'Create'
+      click_button 'Create Restaurant'
 
       expect(current_path).to eq '/restaurants'
       expect(page).to have_content('Plenty of Sushi')
     end
   end
-    
+
 end

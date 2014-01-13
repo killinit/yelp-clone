@@ -1,0 +1,11 @@
+<%= form_for [@restaurant, @review] do |form| %>
+
+<%= form.label :body, 'Review' %>
+<%= form.text_area :body %>
+
+<br>
+<hr>
+
+<%= form.submit 'submit' %>
+
+<% end %>

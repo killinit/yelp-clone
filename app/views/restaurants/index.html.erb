@@ -2,6 +2,7 @@
 
 <h1 style="color:green;background-color:red"><%= restaurant.name %></h1>
 <strong style="color:red;background-color:green"> <%= restaurant.description %></strong>
-<button>add review</button>
+
+<%= link_to 'add review', new_restaurant_review_path(restaurant) %>
 
 <% end %>
