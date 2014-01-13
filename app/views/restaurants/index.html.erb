@@ -1,8 +1,8 @@
 <% @restaurants.each do |restaurant| %>
 
-<h1 style="color:green;background-color:red"><%= restaurant.name %></h1>
-<strong style="color:red;background-color:green"> <%= restaurant.description %></strong>
+<h1><%= restaurant.name %></h1>
+<p> <%= restaurant.description %></p>
 
-<%= link_to 'add review', new_restaurant_review_path(restaurant) %>
+<%= link_to 'Add review', new_restaurant_review_path(restaurant) %>
 
 <% end %>

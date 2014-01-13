@@ -8,7 +8,7 @@ describe "reviews module" do
 
   it "can add a review for a pre-existing restaurant" do
     visit '/restaurants'
-    click_link('add review')
+    click_link('Add review')
     fill_in 'Review', with: 'here is a test review'
     click_button('submit')
     expect(current_path).to be('/restaurants')
