@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body {
   font-family: sans-serif;
+  font-color: red;
   padding: 20px;
 }
 
@@ -12,9 +13,20 @@ body {
   padding: 10px;
   width: 40%;
   margin: auto;
+  a {
+    text-decoration: none;
+    color: red;
+  }
+  #add_new{
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+  #reviews {
+    background-color: #E5E4E2;
+    border-radius: 5px; /*why not inherit*/
+    padding: 3px;
+  }
 }
 
-a {
-  text-decoration: none;
-  color: green;
-}

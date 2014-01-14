@@ -1,5 +1,12 @@
 <h1><%= @restaurant.name %></h1>
 <p> <%= @restaurant.description %></p>
-<%= @restaurant.reviews.each do |review| %>
-<p> <%= review.body %></p>
+
+<% @restaurant.reviews.each do |review| %>
+  <p> <%= review.body %></p>
+  <p> <%= review.ratings %></p>
+
+  <%= link_to 'Edit', edit_restaurant_review_path(@restaurant, review) %>
+  <%= link_to 'Delete Review', restaurant_review_path(@restaurant, review), method: :delete %>
+
 <% end %>
+

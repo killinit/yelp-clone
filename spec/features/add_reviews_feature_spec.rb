@@ -3,12 +3,12 @@ require 'spec_helper'
 describe "reviews module" do
 
   before(:each) do
-    Restaurant.create(name: 'T1', description: 'Test restaurant', :id => 4)
+    Restaurant.create(name: 'Bam Bam Sushi', description: 'Test restaurant', :id => 4)
   end
 
   it "can add a review for a pre-existing restaurant" do
     visit '/restaurants'
-    click_link('Add review')
+    click_link('Review')
     fill_in 'Review', with: 'here is a test review'
     click_button('submit')
     #use deprecated below to avoid 'Compared using equal?, which compares object identity,
