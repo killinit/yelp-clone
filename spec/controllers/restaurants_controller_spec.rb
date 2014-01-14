@@ -1,5 +1,5 @@
-require 'spec_helper'
+# require 'spec_helper'
 
-describe RestaurantsController do
+# describe RestaurantsController do
 
-end
+# end

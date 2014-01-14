@@ -1,5 +1,5 @@
-require 'spec_helper'
+# require 'spec_helper'
 
-describe ReviewsController do
+# describe ReviewsController do
 
-end
+# end

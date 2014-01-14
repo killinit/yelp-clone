@@ -37,6 +37,7 @@ gem 'spring',        group: :development
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'database_cleaner'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
