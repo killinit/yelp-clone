@@ -1,6 +1,14 @@
 require 'spec_helper'
 
 describe 'adding a restaurant' do
+  before(:each) do
+    visit '/users/sign_up'
+    fill_in 'Email', with: 'a@a.com'
+    fill_in 'Password', with: '12345678'
+    fill_in 'Password confirmation', with: '12345678'
+    click_button 'Sign up'
+  end
+  
   context 'give a name and a description' do
     it "should display the new restaurant" do
       visit '/restaurants/new'

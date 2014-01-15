@@ -1,5 +1,7 @@
 class ReviewsController < ApplicationController
 
+  before_action :authenticate_user!
+
   def new
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new
@@ -8,9 +10,15 @@ class ReviewsController < ApplicationController
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new(params[:review].permit(:name, :body, :ratings))
-    
-    if @review.valid?
-      @restaurant.reviews << @review
+
+    #we tied the review to the restaurant AND the user!
+    @review.restaurant = @restaurant
+    @review.user = current_user
+
+    #we no longer user .valid? as the review now is tied to 'promoted' therefore to restaurants.
+    #we added one more validation step
+    if @review.save
+      # @review.restaurants << @review
       redirect_to @restaurant
     else
       render 'new'

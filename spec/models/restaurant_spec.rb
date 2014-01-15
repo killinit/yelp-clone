@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Restaurant do
   describe '.average_rating' do
 
-    let(:restaurant) { Restaurant.new(name: "Hello") }
+    let(:restaurant) { Restaurant.create!(name: "Hello", description: 'The food here is totally awesome blah blah!') }
 
     context 'no ratings' do
       it "should return 'Unrated' if unrated" do
@@ -13,7 +13,7 @@ describe Restaurant do
 
     context 'a single rating' do
       it 'returns that rating' do
-        restaurant.reviews << Review.new(ratings: 3)
+        restaurant.reviews << Review.new(ratings: 3, body: 'a', name: 'b')
 
         expect(restaurant.average_rating).to eq 3
       end
@@ -21,10 +21,10 @@ describe Restaurant do
 
     context 'multiple ratings' do
       it "should return an average of ratings" do
-        restaurant.reviews << Review.new(ratings: 5)
-        restaurant.reviews << Review.new(ratings: 7)
+        restaurant.reviews << Review.new(ratings: 2, body: 'a', name: 'b')
+        restaurant.reviews << Review.new(ratings: 4, body: 'a', name: 'b')
 
-        expect(restaurant.average_rating).to eq(6)
+        expect(restaurant.average_rating).to eq(3)
       end
     end
   end

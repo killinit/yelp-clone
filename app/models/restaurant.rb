@@ -4,11 +4,12 @@ class Restaurant < ActiveRecord::Base
   validates :description, presence: true
 
   def average_rating
-    return 'Unrated' if reviews.none?
+    reviews.average('ratings') || 'Unrated'
+    # return 'Unrated' if reviews.none?
 
-    total = reviews.reduce(0) {|sum, review|
-      sum += review.ratings
-    }
-    (total / reviews.length)
+    # total = reviews.reduce(0) {|sum, review|
+    #   sum += review.ratings
+    # }
+    # (total / reviews.length)
   end
 end
