@@ -3,11 +3,7 @@ require 'spec_helper'
 describe "editing reviews" do
 
   before(:each) do
-    visit '/users/sign_up'
-    fill_in 'Email', with: 'a@a.com'
-    fill_in 'Password', with: '12345678'
-    fill_in 'Password confirmation', with: '12345678'
-    click_button 'Sign up'
+    login
 
     restaurant = Restaurant.create(name: 'Bam Bam Sushi', description: 'Test restaurant. This restaurant is not real', :id => 3)
     restaurant.reviews << Review.create(name: "Wilbur", body: "The worst sushi in town. The sushi is awful. I hate this sushi is the wost thing ever", ratings: 2)

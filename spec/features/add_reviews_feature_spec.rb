@@ -3,11 +3,7 @@ require 'spec_helper'
 describe "reviews module" do
 
   before(:each) do
-    visit '/users/sign_up'
-    fill_in 'Email', with: 'a@a.com'
-    fill_in 'Password', with: '12345678'
-    fill_in 'Password confirmation', with: '12345678'
-    click_button 'Sign up'
+    login
 
     Restaurant.create(name: 'Bam Bam Sushi', description: 'Test restaurant', :id => 4)
       visit '/restaurants'
