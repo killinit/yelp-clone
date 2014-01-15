@@ -1,26 +1,28 @@
 <% if @restaurants.none? %>
   No restaurants yet!
 <% end %>
+  <% @restaurants.each do |restaurant| %>
+  <div class='restaurant'>
 
-<% @restaurants.each do |restaurant| %>
+  <h1><%= link_to restaurant.name, restaurant %></h1>
 
-<h1><%= link_to restaurant.name, restaurant %></h1>
+  <h5>Created <%= time_ago_in_words(restaurant.created_at) %></h5>
 
-<h5>Created <%= time_ago_in_words(restaurant.created_at) %></h5>
+  <p> <%= truncate(restaurant.description, { length: 140 }) %></p>
+  <button>Show reviews</button>
+  <div id='reviews'>
+    <% restaurant.reviews.each do |review| %>
+      <p> <%= review.name %><br />
+        <%= review.body %>
+        <%= review.ratings %></p>
+    <% end %>
+  </div>
 
-<p> <%= truncate(restaurant.description, { length: 140 }) %></p>
-<div id='reviews'>
-  <% restaurant.reviews.each do |review| %>
-    <p> <%= review.name %><br />
-      <%= review.body %>
-      <%= review.ratings %></p>
-  <% end %>
-</div>
+  <%= link_to 'Review', new_restaurant_review_path(restaurant) %>
+  <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
+  <%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure?" } %>
 
-<%= link_to 'Review', new_restaurant_review_path(restaurant) %>
-<%= link_to 'Edit', edit_restaurant_path(restaurant) %>
-<%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure?" } %>
-
+  </div>
 <% end %>
 <br/>
 <div id='add_new'>

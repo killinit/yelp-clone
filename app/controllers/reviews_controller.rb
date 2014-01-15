@@ -7,9 +7,14 @@ class ReviewsController < ApplicationController
 
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @restaurant.reviews << Review.create(params[:review].permit(:name, :body, :ratings))
+    @review = Review.new(params[:review].permit(:name, :body, :ratings))
     
-    redirect_to @restaurant
+    if @review.valid?
+      @restaurant.reviews << @review
+      redirect_to @restaurant
+    else
+      render 'new'
+    end
   end
 
   def edit
