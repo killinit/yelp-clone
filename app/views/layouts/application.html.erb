@@ -8,11 +8,12 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <nav class="navbar navbar-default" role="navigation">
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div id='nav-bar'>
       <ul class="nav navbar-nav">
           <li>
-            <%= link_to('home', restaurants_path) %>
+            <%= link_to('Yelp', restaurants_path, {:class => 'navbar-brand'}) %>
+          </li>
       <% if user_signed_in? %>
           <li>
             <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>        
@@ -28,10 +29,10 @@
           <%= link_to('Register', new_user_registration_path)  %>
           </li>
       <% end %>
+          <li>
+            <%= link_to('Add restaurant', new_restaurant_path, { :style => "color:red" })%>
+          </li>
         </ul>
-    </div>
-    <div class='navbar-left' id='add-new'>
-      <%= link_to('Add restaurant', new_restaurant_path)%>
     </div>
   </nav>
 

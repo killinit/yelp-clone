@@ -11,7 +11,7 @@ describe "editing reviews" do
   end
 
   it "should be able to delete reviews" do
-    click_link('Delete Review')
+    click_link('Delete')
     expect(page).not_to have_content('I love it')
   end
 

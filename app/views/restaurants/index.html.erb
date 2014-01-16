@@ -2,7 +2,7 @@
   No restaurants yet!
 <% end %>
   <% @restaurants.each do |restaurant| %>
-  <div class='row'>
+  <div class='row restaurant'>
     <div class='col-md-4 restaurant-image' %>
       <%= image_tag restaurant.image_url %>
     </div>
@@ -14,13 +14,14 @@
       <h5>Created <%= time_ago_in_words restaurant.created_at  %> ago</h5>
 
       <p> <%= truncate(restaurant.description, { length: 140 }) %></p>
-      <button class='show-reviews'>Show reviews</button>
+      <button class='show-reviews btn btn-danger'>Show reviews</button>
 
       <div class='reviews'>
         <% restaurant.reviews.each do |review| %>
-          <p> <%= review.name %><br />
+          <p>
             <%= review.body %>
-            <%= review.ratings %></p>
+            Rating: <%= star_rating review %>
+          </p>
         <% end %>
       </div>
 

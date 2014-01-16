@@ -14,19 +14,16 @@ body a {
     text-decoration: none;
     color: #8C001A;
   }
-
   #nav-bar ul {
     list-style-type:none;
-    #add_new {
-      float: right;
-      padding: 5px;
-    }
   }
 }
-
-.restaurant-image img {
-  max-width: 100%;
-}
+// .restaurant {
+//   margin-bottom: 10px;
+  .restaurant-image img {
+    max-width: 100%;
+  } 
+// }
 
 
 // #main {

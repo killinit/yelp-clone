@@ -12,4 +12,5 @@ class Restaurant < ActiveRecord::Base
     # }
     # (total / reviews.length)
   end
+
 end
