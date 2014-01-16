@@ -7,8 +7,9 @@
 //   padding: 20px;
 // }
 
+
 body a {
-  color: red;
+  color: grey;
   text-decoration: none;
   &:hover {
     text-decoration: none;
@@ -18,34 +19,30 @@ body a {
     list-style-type:none;
   }
 }
-// .restaurant {
-//   margin-bottom: 10px;
-  .restaurant-image img {
-    max-width: 100%;
-  } 
-// }
 
+h1 {
+  a { 
+  color: red;
+  }
+}
 
-// #main {
-//   border: 1px solid black;
-//   border-radius: 5px;
-//   padding: 10px;
-//   width: 40%;
-//   margin: auto;
-//   a {
-//     text-decoration: none;
-//     color: red;
-//   }
-//   #add_new{
-//     a {
-//       text-decoration: none;
-//       color: black;
-//     }
-//   }
-//   #reviews {
-//     background-color: #E5E4E2;
-//     border-radius: 5px; /*why not inherit*/
-//     padding: 3px;
-//   }
-// }
+#map {
+  height: 300px;
+  width: 600px;
+  margin-bottom: 20px;
+}
+
+.add-review {
+  padding-top: 30px;
+}
+
+.restaurant-image img {
+  max-width: 100%;
+} 
+
+.edit-links a {
+  color: grey;
+  padding: 5px;
+}
+
 

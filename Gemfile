@@ -40,6 +40,8 @@ gem 'factory_girl_rails'
 
 gem 'bootstrap-sass'
 
+gem 'geocoder'
+
 # gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
 
 group :test, :development do

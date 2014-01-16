@@ -3,10 +3,10 @@ require 'spec_helper'
 describe "editing reviews" do
 
   before(:each) do
-    login
+    user = login
     # create(:restaurant, :id => 5)
     restaurant = Restaurant.create(name: 'Bam Bam Sushi', description: 'Test restaurant. This restaurant is not real', :id => 3)
-    restaurant.reviews << Review.create(name: "Wilbur", body: "The worst sushi in town. The sushi is awful. I hate this sushi is the wost thing ever", ratings: 2)
+    restaurant.reviews << Review.create(name: "Wilbur", body: "The worst sushi in town. The sushi is awful. I hate this sushi is the wost thing ever", ratings: 2, user: user)
     visit '/restaurants/3'
   end
 

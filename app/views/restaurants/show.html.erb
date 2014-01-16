@@ -1,8 +1,16 @@
 
 <div class='row'>
-  <div class='col-sm-12'>
+  <div class='col-sm-6'>
     <h1><%= @restaurant.name %></h1>
   </div>
+  <div class='col-sm-4 add-review'>
+   <% if user_signed_in? && !current_user.reviewed?(@restaurant) %>
+    <%= link_to 'Add review', new_restaurant_review_path(@restaurant), {:class => 'btn btn-danger'} %>
+    <% end %>
+  </div>
+</div>
+
+<div class='row'>
   <div class='col-sm-12'>
     <p><%= @restaurant.postcode %>, <%= @restaurant.address %>, <%= @restaurant.tube %></p>
   </div>
@@ -12,25 +20,36 @@
 
   <div class='col-sm-12'>
     <div id='map'>
-      This will be the map
     </div>
+    <script>
+      var map = new GMaps({
+        div: '#map',
+        lat: <%= @restaurant.latitude %>,
+        lng: <%= @restaurant.longitude %>
+      });
+
+      map.addMarker({
+        lat: <%= @restaurant.latitude %>,
+        lng: <%= @restaurant.longitude %>,
+        title: '<%= @restaurant.name %>',
+        infoWindow: {
+          content: '<p><%= star_rating @restaurant %></p>'
+        }
+      });
+    </script>
   </div>
 
-  <div class='col-sm-12'>
-    <% if user_signed_in? && !current_user.reviewed?(@restaurant) %>
-    <%= link_to 'Add review', new_restaurant_review_path(@restaurant) %>
-    <% end %>
-  </div>
+
 </div>
 
 <% @restaurant.reviews.each do |review| %>
   <div class='row'>
-    <div class='col-sm-12 alert <%= review_color(review) %>'>
+    <div class='col-sm-8 alert <%= review_color(review) %>'>
       <h4>Reviewer: <%= review.user.email %>
       <p> <%= review.body %> <br />
         Rating: <%= star_rating review %></p>
     </div>
-    <div class='col-sm-12'>
+    <div class='col-sm-12 edit-links'>
       <%= link_to 'Edit', edit_restaurant_review_path(@restaurant, review) %>
       <%= link_to 'Delete', restaurant_review_path(@restaurant, review), method: :delete %>
     </div>
