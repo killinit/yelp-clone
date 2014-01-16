@@ -1,32 +1,54 @@
 // Place all the styles related to the restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
-  font-family: sans-serif;
-  font-color: red;
-  padding: 20px;
-}
+// body {
+//   font-family: sans-serif;
+//   font-color: red;
+//   padding: 20px;
+// }
 
-#main {
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 10px;
-  width: 40%;
-  margin: auto;
-  a {
+body a {
+  color: red;
+  text-decoration: none;
+  &:hover {
     text-decoration: none;
-    color: red;
+    color: #8C001A;
   }
-  #add_new{
-    a {
-      text-decoration: none;
-      color: black;
+
+  #nav-bar ul {
+    list-style-type:none;
+    #add_new {
+      float: right;
+      padding: 5px;
     }
   }
-  #reviews {
-    background-color: #E5E4E2;
-    border-radius: 5px; /*why not inherit*/
-    padding: 3px;
-  }
 }
+
+.restaurant-image img {
+  max-width: 100%;
+}
+
+
+// #main {
+//   border: 1px solid black;
+//   border-radius: 5px;
+//   padding: 10px;
+//   width: 40%;
+//   margin: auto;
+//   a {
+//     text-decoration: none;
+//     color: red;
+//   }
+//   #add_new{
+//     a {
+//       text-decoration: none;
+//       color: black;
+//     }
+//   }
+//   #reviews {
+//     background-color: #E5E4E2;
+//     border-radius: 5px; /*why not inherit*/
+//     padding: 3px;
+//   }
+// }
 

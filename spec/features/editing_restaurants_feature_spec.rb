@@ -4,7 +4,7 @@ describe "Editing restaurants" do
   
   before(:each) do
     login
-    Restaurant.create(name: 'Sushi Stop', description: "The best sushi in town")
+    create(:restaurant)
     visit('/restaurants')
   end
 

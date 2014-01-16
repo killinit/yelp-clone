@@ -1,12 +1,27 @@
-<h1><%= @restaurant.name %></h1>
-<p> <%= @restaurant.description %></p>
+
+<div class='row'>
+  <div class='col-sm-12'>
+    <h1><%= @restaurant.name %></h1>
+  </div>
+  <div class='col-sm-12'>
+    <p><%= @restaurant.postcode %>, <%= @restaurant.address %>, <%= @restaurant.tube %></p>
+  </div>
+  <div class='col-sm-12'>
+    <p> <%= @restaurant.description %></p>
+  </div>
+</div>
 
 <% @restaurant.reviews.each do |review| %>
-  <p> <%= review.body %></p>
-  <p> <%= review.ratings %></p>
-
-  <%= link_to 'Edit', edit_restaurant_review_path(@restaurant, review) %>
-  <%= link_to 'Delete Review', restaurant_review_path(@restaurant, review), method: :delete %>
-
+  <div class='row'>
+    <div class='col-sm-12 alert <%= review_color(review) %>'>
+      <h4>Reviewer: <%= review.user.email %>
+      <p> <%= review.body %> <br />
+        Rating: <%= star_rating review %></p>
+    </div>
+    <div class='col-sm-12'>
+      <%= link_to 'Edit', edit_restaurant_review_path(@restaurant, review) %>
+      <%= link_to 'Delete Review', restaurant_review_path(@restaurant, review), method: :delete %>
+      <%= link_to 'Add review', new_restaurant_review_path(@restaurant) %>
+    </div>
+  </div>
 <% end %>
-

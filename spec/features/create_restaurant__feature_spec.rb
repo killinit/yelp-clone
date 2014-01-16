@@ -10,6 +10,12 @@ describe 'adding a restaurant' do
       visit '/restaurants/new'
       fill_in 'Name', with: 'Plenty of Sushi'
       fill_in 'Description', with: 'Om nom nom'
+      fill_in 'Postcode', with: 'EC1R 4QE'
+      fill_in 'Address', with: '52-54 Exmouth Market, Clerkenwell'
+      #future: dropdown
+      fill_in 'Tube', with: 'Angel'
+      
+
 
       click_button 'Add restaurant'
 

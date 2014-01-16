@@ -1,6 +1,6 @@
 <% if @review.errors.any? %>
   <div id="error_explanation">
-    <h2><%= pluralize(@review.errors.count, "error") %> pthis review cannot be saved because:</h2>
+    <h2><%= pluralize(@review.errors.count, "error") %> this review cannot be saved because:</h2>
     <ul>
     <% @review.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -24,7 +24,7 @@
 <hr>
 
 <%= form.label :ratings, 'Rating' %>
-<%= form.select :ratings, options_for_select(1..5) %>
+<%= form.select :ratings, options_for_select(@review.valid_ratings) %>
 
 <%= form.submit 'submit' %>
 

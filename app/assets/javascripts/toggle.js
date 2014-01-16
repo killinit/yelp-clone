@@ -1,8 +1,9 @@
 $(function() {
-  // var restaurant = $(".restaurant")
-  // restaurant.every(
-    $('button').click(function() {
-      $('#reviews').toggle('slow');
+    $('.reviews').hide();
+    $('.show-reviews').click(function() {
+    $(this).next('.reviews').toggle('slow');
+    $(this).text(function(index, text) {
+      return text === 'Show reviews' ? 'Hide Reviews' : 'Show reviews'
     });
-  // );
+  });
 });

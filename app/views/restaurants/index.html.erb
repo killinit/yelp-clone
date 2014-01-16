@@ -2,28 +2,33 @@
   No restaurants yet!
 <% end %>
   <% @restaurants.each do |restaurant| %>
-  <div class='restaurant'>
+  <div class='row'>
+    <div class='col-md-4 restaurant-image' %>
+      <%= image_tag restaurant.image_url %>
+    </div>
 
-  <h1><%= link_to restaurant.name, restaurant %></h1>
+    <div class='col-md-8'>
+      <h1><%= link_to restaurant.name, restaurant %></h1>
+      <p><%= restaurant.postcode %>, <%= restaurant.address %>, <%= restaurant.tube %></p>
+  
+      <h5>Created <%= time_ago_in_words restaurant.created_at  %> ago</h5>
 
-  <h5>Created <%= time_ago_in_words(restaurant.created_at) %></h5>
+      <p> <%= truncate(restaurant.description, { length: 140 }) %></p>
+      <button class='show-reviews'>Show reviews</button>
 
-  <p> <%= truncate(restaurant.description, { length: 140 }) %></p>
-  <button>Show reviews</button>
-  <div id='reviews'>
-    <% restaurant.reviews.each do |review| %>
-      <p> <%= review.name %><br />
-        <%= review.body %>
-        <%= review.ratings %></p>
-    <% end %>
+      <div class='reviews'>
+        <% restaurant.reviews.each do |review| %>
+          <p> <%= review.name %><br />
+            <%= review.body %>
+            <%= review.ratings %></p>
+        <% end %>
+      </div>
+
+      <%= link_to 'Review', new_restaurant_review_path(restaurant) %>
+      <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
+      <%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure?" } %>
+    </div>
   </div>
+  <% end %>
 
-  <%= link_to 'Review', new_restaurant_review_path(restaurant) %>
-  <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
-  <%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure?" } %>
 
-  </div>
-<% end %>
-<br/>
-<div id='add_new'>
-<%= link_to 'Add restaurant', new_restaurant_path %></div>

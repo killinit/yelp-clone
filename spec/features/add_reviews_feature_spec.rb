@@ -4,8 +4,8 @@ describe "reviews module" do
 
   before(:each) do
     login
-
-    Restaurant.create(name: 'Bam Bam Sushi', description: 'Test restaurant', :id => 4)
+    create(:restaurant, :id => 4)
+    # Restaurant.create(name: 'Bam Bam Sushi', description: 'Test restaurant', :id => 4)
       visit '/restaurants'
       click_link('Review')
   end

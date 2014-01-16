@@ -36,6 +36,12 @@ gem 'spring',        group: :development
 
 gem 'devise'
 
+gem 'factory_girl_rails'
+
+gem 'bootstrap-sass'
+
+# gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git', branch: 'bootstrap3'
+
 group :test, :development do
   gem 'rspec-rails'
   gem 'capybara'
