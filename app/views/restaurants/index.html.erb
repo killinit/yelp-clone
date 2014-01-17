@@ -14,7 +14,7 @@
       <h5>Created <%= time_ago_in_words restaurant.created_at  %> ago</h5>
 
       <p> <%= truncate(restaurant.description, { length: 140 }) %></p>
-      <div class='row'>
+      <div class='row review-box'>
         <div class='col-md-4'>
          <button class='show-reviews btn btn-danger'>Show reviews</button>
         <div class='reviews'>
@@ -29,8 +29,10 @@
 
        <div class='col-md-8'>
         <%= link_to 'Review', new_restaurant_review_path(restaurant) %>
+        <span class='admin'>
         <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
         <%= link_to 'Delete', restaurant_path(restaurant), method: :delete, data: { confirm: "Are you sure?" } %>
+        </span>
       </div>
     </div>
     </div>

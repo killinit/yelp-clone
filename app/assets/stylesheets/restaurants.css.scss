@@ -46,3 +46,12 @@ h1 {
 }
 
 
+.review-box .admin {
+  display: none;
+}
+
+.review-box.hover .admin {
+  display: inline;
+}
+
+
